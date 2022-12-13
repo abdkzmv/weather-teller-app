@@ -1,0 +1,112 @@
+button {
+    border-radius: 20px;
+}
+
+.app-header {
+    text-align: center;
+}
+
+#options-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+button {
+    transition: 0.5s;
+    height: 100px;
+    width: 200px;
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    transition: 0.5s;
+    height: 100px;
+    width: 200px;
+    background-color: white;
+    color: black;
+}
+
+input {
+    font-size: large;
+    width: 250px;
+    height: 60px;
+    padding: 5px;
+}
+
+#phase2-list {
+    text-align: center;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#phase2-list>li {
+    padding-bottom: 20px;
+}
+
+#phase2-main {
+    list-style-type: none;
+}
+
+#phase2-main>li {
+    padding-bottom: 20px;
+}
+
+.result {
+    border-radius: 25px;
+    border: 1px solid black;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 30px;
+}
+
+#location {
+    text-align: center;
+    font-size: larger;
+}
+
+#result-main {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#latest-response {
+    text-align: center;
+}
+
+.app-footer {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .result {
+        font-size: smaller;
+    }
+    #options-list {
+        flex-direction: column;
+        text-align: center;
+        width: 80%;
+    }
+    #options-list>li {
+        padding-bottom: 15px;
+    }
+    #options-list>li>button {
+        width: 90;
+    }
+    .result {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .phase2 {
+        margin-left: -10%;
+        width: 100%;
+    }
+}
