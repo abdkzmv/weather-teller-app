@@ -25,7 +25,7 @@
                         <button onclick="">Longitude & Latitude</button>
                     </li>
                     <li id = "option-get-geolocation">
-                        <button onclick="">Geolocation API<br>(just click me)</button>
+                        <button onclick="getGeolocation()">Geolocation API<br>(just click me)</button>
                     </li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@
                                 <h3>Enter city name</h3>
                                 <input type="text" name="cityName" id="city-name" placeholder="Example: Baku"/>
                                 <br/> <br/>
-                                <button>Submit</button>
+                                <button onclick="getCityName()">Submit</button>
                             </li>
                             <li>
                                 <h3>Enter coordinates</h3>
@@ -46,7 +46,7 @@
                             <li>
                                 <input type="text" name="latitude" id="latitude" placeholder="Latitude"/>
                                 <br/> <br/>
-                                <button>Submit</button>
+                                <button onclick="getLonLat()">Submit</button>
                             </li>
                         </ul>
                     </li>
