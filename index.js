@@ -1,4 +1,5 @@
 let API_KEY = "2b2c5484ef443da5b2de3ce632278195";
+let celcius = "&#8451;";
 
 function getCityName() {
     let cityName = document.getElementById("city-name").value;
@@ -27,7 +28,7 @@ function getCoordinates(position) {
 }
 
 function weatherByCoordinates(lat, lon) {
-    let url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + API_KEY;
+    let url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + API_KEY + "&units=metric";
     fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -36,7 +37,7 @@ function weatherByCoordinates(lat, lon) {
 }
 
 function weatherByCityName(cityName) {
-    let url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + API_KEY;
+    let url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + API_KEY + "&units=metric";
     fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -44,6 +45,75 @@ function weatherByCityName(cityName) {
     });
 }
 
+function convert(deg) {
+    deg = (deg + 360) % 360;
+    if (deg == 0)
+        return "North";
+    if (deg < 90)
+        return "North-East";
+    if (deg == 90)
+        return "East";
+    if (deg < 180)
+        return "South-East";
+    if (deg == 180)
+        return "South";
+    if (deg < 270)
+        return "South-West";
+    if (deg == 270)
+        return "West";
+    if (deg > 270)
+        return "North-West";
+}
+
 function generateHTML(data) {
-    console.log(data);
+    if(data.sys.country == undefined) {
+        let location = document.getElementById("location");
+        location.innerHTML = "<b>There is no country there 👀</b>";
+    }
+    else {
+        let url = "https://restcountries.com/v3.1/alpha/" + data.sys.country;
+        fetch(url)
+        .then((res) => res.json())
+        .then((restData) => {
+            let location = document.getElementById("location");
+            location.innerHTML = "<b>" + data.name + ", " + restData[0].name.common + "</b> " + restData[0].flag;
+        });
+    }
+    let condition = document.getElementById("condition");
+    condition.innerHTML = "<b>Condition:</b> " + data.weather[0].main;
+
+    let description = document.getElementById("description");
+    description.innerHTML = "<b>Description:</b> " + data.weather[0].description;
+
+    let humidity = document.getElementById("humidity");
+    humidity.innerHTML = "<b>Humidity:</b> " + data.main.humidity + "%";
+
+    let pressure = document.getElementById("pressure");
+    pressure.innerHTML = "<b>Pressure:</b> " + data.main.pressure + " hPA";
+
+    let windSpeed = document.getElementById("wind-speed");
+    windSpeed.innerHTML = "<b>Wind Speed:</b> " + data.wind.speed + " km/h";
+
+    let windDir = document.getElementById("wind-direction");
+    windDir.innerHTML = "<b>Wind Direction:</b> " + convert(data.wind.deg);
+
+    let temp = document.getElementById("temp");
+    temp.innerHTML = "<b>Temp:</b> " + data.main.temp + " " + celcius;
+
+    let minTemp = document.getElementById("min-temp");
+    minTemp.innerHTML = "<b>Min:</b> " + data.main.temp_min + " " + celcius;
+
+    let maxTemp = document.getElementById("max-temp");
+    maxTemp.innerHTML = "<b>Max:</b> " + data.main.temp_max + " " + celcius;
+
+    let realFeel = document.getElementById("real-feel");
+    realFeel.innerHTML = "<b>Feels Like:</b> " + data.main.feels_like + " " + celcius;
+
+    let unix = data.dt * 1000.000;
+    let date = new Date(unix);
+    let localTime = date.toLocaleTimeString("en-US");
+    let localDate = date.toLocaleDateString("en-US");
+
+    let latestResponse = document.getElementById("latest-response");
+    latestResponse.innerHTML = "<b>Latest Response:</b> " + localTime + " " + localDate;
 }
