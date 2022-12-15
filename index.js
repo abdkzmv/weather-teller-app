@@ -1,6 +1,7 @@
 /***            OPTIONS MANAGEMENT              ***/
 
 function optionCityName() {
+    document.getElementById("app-header").style.setProperty("display","none");
     document.getElementById("options-list").style.setProperty("display","none");
     document.getElementById("phase2-list").style.setProperty("display","flex");
     document.getElementById("enter-city-name").style.setProperty("display","block");
@@ -8,6 +9,7 @@ function optionCityName() {
 }
 
 function optionCoordinates() {
+    document.getElementById("app-header").style.setProperty("display","none");
     document.getElementById("options-list").style.setProperty("display","none");
     document.getElementById("phase2-list").style.setProperty("display","flex");
     document.getElementById("enter-city-name").style.setProperty("display","none");
@@ -15,6 +17,7 @@ function optionCoordinates() {
 }
 
 function restart() {
+    document.getElementById("app-header").style.setProperty("display","block");
     document.getElementById("options-list").style.setProperty("display","flex");
     document.getElementById("result-div").style.setProperty("display","none");
     document.getElementById("restart").style.setProperty("display","none");
@@ -37,6 +40,7 @@ function getLonLat() {
 }
 
 function getGeolocation() {
+    document.getElementById("app-header").style.setProperty("display","none");
     document.getElementById("options-list").style.setProperty("display","none");
     document.getElementById("result-div").style.setProperty("display","block");
     document.getElementById("restart").style.setProperty("display","block");
@@ -119,6 +123,38 @@ function generateHTML(data) {
     }
     let condition = document.getElementById("condition");
     condition.innerHTML = "<b>Condition:</b> " + data.weather[0].main;
+
+    let specialNote = document.getElementById("special-note");
+
+    condition = data.weather[0].main;
+
+    if(condition == "Thunderstorm") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "You may see lightning there ⚡️";
+    }
+
+    if(condition == "Drizzle") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "There can be heavy rain outside 🌧️";
+    }
+
+    if(condition == "Rain") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "Do not forget to bring your umbrella ☂️";
+    }
+
+    if(condition == "Snow") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "You can build a snowman right now ☃️";
+    }
+
+    if(condition == "Atmosphere") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "Be careful with wind 🌬️";
+    }
+
+    if(condition == "Clear") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "Best time for swimming 🤿";
+    }
+
+    if(condition == "Clouds") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "Check out the weather and wear well 👕";
+    }
 
     let description = document.getElementById("description");
     description.innerHTML = "<b>Description:</b> " + data.weather[0].description;

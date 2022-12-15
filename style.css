@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+    color: white;
+}
 button {
     border-radius: 20px;
 }
@@ -9,12 +13,16 @@ button {
 #options-list {
     list-style: none;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+}
+
+#options-list>li {
+    padding-bottom: 15px;
 }
 
 button {
-    transition: 0.5s;
+    transition: 0.2s;
     height: 100px;
     width: 200px;
     background-color: black;
@@ -22,7 +30,7 @@ button {
 }
 
 button:hover {
-    transition: 0.5s;
+    transition: 0.2s;
     height: 100px;
     width: 200px;
     background-color: white;
@@ -34,6 +42,8 @@ input {
     width: 250px;
     height: 60px;
     padding: 5px;
+    border-radius: 20px;
+    border-color: white;
 }
 
 #phase2-list {
@@ -59,10 +69,10 @@ input {
 #result-div {
     display: none;
     border-radius: 25px;
-    border: 1px solid black;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
+    border: 1px solid white;
+    width: 90;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 30px;
 }
 
@@ -78,17 +88,29 @@ input {
     justify-content: space-around;
 }
 
+#result-right {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 #latest-response {
     text-align: center;
 }
 
 .app-footer {
+    bottom: 0;
     text-align: center;
 }
 
 #restart {
     display: none;
     text-align: center;
+}
+
+@media (max-width: 1200px) {
+    #special-note {
+        display: none;
+    }
 }
 
 @media (max-width: 700px) {
@@ -98,13 +120,13 @@ input {
     #options-list {
         flex-direction: column;
         text-align: center;
-        width: 80%;
     }
     #options-list>li {
         padding-bottom: 15px;
+        width: 90%;
     }
     #options-list>li>button {
-        width: 90;
+        width: 90%;
     }
     .result {
         width: 90%;
@@ -114,5 +136,11 @@ input {
     .phase2 {
         margin-left: -10%;
         width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    p {
+        font-size: 10px;
     }
 }

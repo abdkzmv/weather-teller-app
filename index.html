@@ -13,9 +13,8 @@
     </head>
     <body>
         <div class = "container">
-            <div class="app-header">
-                <h2>Get Weather Information Using...</h2>
-                <hr>
+            <div class="app-header" id = "app-header">
+                <h2>Learn how weather is like using:</h2>
             </div>
             <div class="options">
                 <ul id = "options-list">
@@ -64,21 +63,20 @@
                             <p id="wind-speed"><b>Wind Speed:</b></p>
                             <p id="wind-direction"><b>Wind Direction:</b></p>
                     </li>
-                    <li>
+                    <li id = "result-right">
                             <p id="temp"><b>Temp:</b></p>
                             <p id="min-temp"><b>Min:</b></p>
                             <p id="max-temp"><b>Max:</b></p>
                             <p id="real-feel"><b>Feels like:</b></p>
+                            <br />
+                            <p id="special-note"><b>Special note:</b></p>
                     </li>
                 </ul>
                 <p id="latest-response"><b>Latest Response:</b></p>
             </div>
             <div id = "restart">
+                <p>* Response may take a few seconds due to amount of requests.<br/>Thank you for your patience :)</p>
                 <button onclick="restart()">Try Again</button>
-            </div>
-            <div class="app-footer">
-                <hr>
-                <h3>&copy; Abdullah Kazimov</h3>
             </div>
         </div>
     </body>
