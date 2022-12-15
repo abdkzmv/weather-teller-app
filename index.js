@@ -1,5 +1,29 @@
-let API_KEY = "2b2c5484ef443da5b2de3ce632278195";
-let celcius = "&#8451;";
+/***            OPTIONS MANAGEMENT              ***/
+
+function optionCityName() {
+    document.getElementById("options-list").style.setProperty("display","none");
+    document.getElementById("phase2-list").style.setProperty("display","flex");
+    document.getElementById("enter-city-name").style.setProperty("display","block");
+    document.getElementById("enter-coords").style.setProperty("display","none");
+}
+
+function optionCoordinates() {
+    document.getElementById("options-list").style.setProperty("display","none");
+    document.getElementById("phase2-list").style.setProperty("display","flex");
+    document.getElementById("enter-city-name").style.setProperty("display","none");
+    document.getElementById("enter-coords").style.setProperty("display","block");
+}
+
+function restart() {
+    document.getElementById("options-list").style.setProperty("display","flex");
+    document.getElementById("result-div").style.setProperty("display","none");
+    document.getElementById("restart").style.setProperty("display","none");
+}
+
+/***    API-RELATED FUNCTIONS AND CONSTANTS     ***/
+
+const API_KEY = "2b2c5484ef443da5b2de3ce632278195";
+const celcius = "&#8451;";
 
 function getCityName() {
     let cityName = document.getElementById("city-name").value;
@@ -13,6 +37,9 @@ function getLonLat() {
 }
 
 function getGeolocation() {
+    document.getElementById("options-list").style.setProperty("display","none");
+    document.getElementById("result-div").style.setProperty("display","block");
+    document.getElementById("restart").style.setProperty("display","block");
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getCoordinates);
     }
@@ -28,6 +55,9 @@ function getCoordinates(position) {
 }
 
 function weatherByCoordinates(lat, lon) {
+    document.getElementById("phase2-list").style.setProperty("display","none");
+    document.getElementById("result-div").style.setProperty("display","block");
+    document.getElementById("restart").style.setProperty("display","block");
     let url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + API_KEY + "&units=metric";
     fetch(url)
     .then((res) => res.json())
@@ -37,6 +67,9 @@ function weatherByCoordinates(lat, lon) {
 }
 
 function weatherByCityName(cityName) {
+    document.getElementById("phase2-list").style.setProperty("display","none");
+    document.getElementById("result-div").style.setProperty("display","block");
+    document.getElementById("restart").style.setProperty("display","block");
     let url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + API_KEY + "&units=metric";
     fetch(url)
     .then((res) => res.json())
@@ -66,6 +99,11 @@ function convert(deg) {
 }
 
 function generateHTML(data) {
+    if(data.cod != 200) {
+        alert("Something is wrong. Please check your input values and try again.");
+        window.location.href = "index.html";
+    }
+
     if(data.sys.country == undefined) {
         let location = document.getElementById("location");
         location.innerHTML = "<b>There is no country there 👀</b>";

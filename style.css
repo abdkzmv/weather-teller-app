@@ -39,7 +39,7 @@ input {
 #phase2-list {
     text-align: center;
     list-style: none;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-around;
 }
@@ -56,7 +56,8 @@ input {
     padding-bottom: 20px;
 }
 
-.result {
+#result-div {
+    display: none;
     border-radius: 25px;
     border: 1px solid black;
     width: 60%;
@@ -82,6 +83,11 @@ input {
 }
 
 .app-footer {
+    text-align: center;
+}
+
+#restart {
+    display: none;
     text-align: center;
 }
 
