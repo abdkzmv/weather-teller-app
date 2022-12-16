@@ -17,6 +17,7 @@ function optionCoordinates() {
 }
 
 function resetResult() {
+    document.getElementById("location").innerHTML = "loading...";
     document.getElementById("condition").innerHTML = "<b>⛅️ Condition:</b> loading...";
     document.getElementById("description").innerHTML = "<b>📄 Description:</b> loading...";
     document.getElementById("humidity").innerHTML = "<b>💧 Humidity:</b> loading...";
@@ -31,6 +32,8 @@ function resetResult() {
     document.getElementById("min-temp").innerHTML = "<b>📉 Min:</b> loading...";
     document.getElementById("max-temp").innerHTML = "<b>📈 Max:</b> loading...";
     document.getElementById("real-feel").innerHTML = "<b>😶‍🌫️ Feels like:</b> loading...";
+
+    document.getElementById("latest-response").innerHTML = "<b>Latest Response:</b> loading...";
 }
 
 function restart() {
