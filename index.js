@@ -131,29 +131,27 @@ function generateHTML(data) {
     if(condition == "Thunderstorm") {
         specialNote.innerHTML = "<b>Special Note:</b> " + "You may see lightning there ⚡️";
     }
-
+    else
     if(condition == "Drizzle") {
         specialNote.innerHTML = "<b>Special Note:</b> " + "There can be heavy rain outside 🌧️";
     }
-
+    else
     if(condition == "Rain") {
         specialNote.innerHTML = "<b>Special Note:</b> " + "Do not forget to bring your umbrella ☂️";
     }
-
+    else
     if(condition == "Snow") {
         specialNote.innerHTML = "<b>Special Note:</b> " + "You can build a snowman right now ☃️";
     }
-
-    if(condition == "Atmosphere") {
-        specialNote.innerHTML = "<b>Special Note:</b> " + "Be careful with wind 🌬️";
+    else if(condition == "Clear") {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "Good time for a nice football match ⚽️";
     }
 
-    if(condition == "Clear") {
-        specialNote.innerHTML = "<b>Special Note:</b> " + "Best time for swimming 🤿";
-    }
-
-    if(condition == "Clouds") {
+    else if(condition == "Clouds") {
         specialNote.innerHTML = "<b>Special Note:</b> " + "Check out the weather and wear well 👕";
+    }
+    else {
+        specialNote.innerHTML = "<b>Special Note:</b> " + "Be careful with wind and fog 🌬️";
     }
 
     let description = document.getElementById("description");
