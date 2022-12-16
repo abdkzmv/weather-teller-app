@@ -16,12 +16,7 @@ function optionCoordinates() {
     document.getElementById("enter-coords").style.setProperty("display","block");
 }
 
-function restart() {
-    document.getElementById("app-header").style.setProperty("display","block");
-    document.getElementById("options-list").style.setProperty("display","flex");
-    document.getElementById("result-div").style.setProperty("display","none");
-    document.getElementById("restart").style.setProperty("display","none");
-
+function resetResult() {
     document.getElementById("condition").innerHTML = "<b>⛅️ Condition:</b> loading...";
     document.getElementById("description").innerHTML = "<b>📄 Description:</b> loading...";
     document.getElementById("humidity").innerHTML = "<b>💧 Humidity:</b> loading...";
@@ -36,6 +31,15 @@ function restart() {
     document.getElementById("min-temp").innerHTML = "<b>📉 Min:</b> loading...";
     document.getElementById("max-temp").innerHTML = "<b>📈 Max:</b> loading...";
     document.getElementById("real-feel").innerHTML = "<b>😶‍🌫️ Feels like:</b> loading...";
+}
+
+function restart() {
+    document.getElementById("app-header").style.setProperty("display","block");
+    document.getElementById("options-list").style.setProperty("display","flex");
+    document.getElementById("result-div").style.setProperty("display","none");
+    document.getElementById("restart").style.setProperty("display","none");
+
+    resetResult();
 }
 
 /***    API-RELATED FUNCTIONS AND CONSTANTS     ***/
@@ -118,6 +122,8 @@ function convert(deg) {
 }
 
 function generateHTML(data) {
+    resetResult();
+    
     if(data.cod != 200) {
         alert("Something is wrong. Please check your input values and try again.");
         window.location.href = "index.html";
@@ -182,7 +188,7 @@ function generateHTML(data) {
     windSpeed.innerHTML = "<b>🏎️ Wind Speed:</b> " + data.wind.speed + " km/h";
 
     let windDir = document.getElementById("wind-direction");
-    windDir.innerHTML = "<b>🧭 Wind Direction:</b> " + convert(data.wind.deg);
+    windDir.innerHTML = "<b>🧭 Wind Direction:</b> " + convert(data.wind.deg) + " (" + data.wind.deg + "°)";
 
     let temp = document.getElementById("temp");
     temp.innerHTML = "<b>🌡️ Temp:</b> " + data.main.temp + " " + celcius;
