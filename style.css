@@ -1,6 +1,7 @@
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: #87CEEB;
     color: white;
+    margin-top: 5%;
 }
 
 h2:hover {
@@ -11,7 +12,8 @@ h2:hover {
 button {
     border-radius: 20px;
     border-width: 5px;
-    border-color:antiquewhite;
+    border-color:black;
+    font-size: 18px;
 }
 
 .app-header {
@@ -33,7 +35,7 @@ button {
     transition: 0.2s;
     height: 100px;
     width: 200px;
-    background-color: black;
+    background-color: #87CEEB;
     color: white;
 }
 
@@ -79,7 +81,9 @@ input {
 #result-div {
     display: none;
     border-radius: 25px;
-    border: 1px solid white;
+    border: 4px solid #d5e6ec;
+    background-color: #39a3cd;
+    color: white;
     width: 90;
     margin-left: 5%;
     margin-right: 5%;
@@ -105,6 +109,11 @@ input {
 
 #latest-response {
     text-align: center;
+}
+
+#special-note {
+    background-color: blueviolet;
+    border: 1px solid black;
 }
 
 .app-footer {

@@ -14,7 +14,7 @@
     <body>
         <div class = "container">
             <div class="app-header" id = "app-header">
-                <h2>Learn how weather is like using:</h2>
+                <h1>Learn how weather is like using:</h1>
             </div>
             <div class="options">
                 <ul id = "options-list">
@@ -34,13 +34,13 @@
                     <li>
                         <ul id="phase2-main">
                             <li id = "enter-city-name">
-                                <h3>Enter city name</h3>
+                                <h1>Enter city name 🏙️</h1>
                                 <input type="text" name="cityName" id="city-name" placeholder="Example: Baku"/>
                                 <br/> <br/>
                                 <button onclick="getCityName()">Submit</button>
                             </li>
                             <li id = "enter-coords">
-                                <h3>Enter coordinates</h3>
+                                <h1>Enter coordinates 🗺️</h1>
                                 <input type="text" name="longitude" id="longitude" placeholder="Longitude"/>
                                 <br/> <br />
                                 <input type="text" name="latitude" id="latitude" placeholder="Latitude"/>
@@ -52,30 +52,30 @@
                 </ul>
             </div>
             <div id = "result-div">
-                <p id="location"></p>
+                <p id="location">Loading...</p>
                 <ul id="result-main">
                     <li>
-                            <p id="condition"><b>Condition:</b></p>
-                            <p id="description"><b>Description:</b></p>
-                            <p id="humidity"><b>Humidity:</b></p>
-                            <p id="pressure"><b>Pressure:</b></p>
+                            <p id="condition"><b>⛅️ Condition:</b> loading...</p>
+                            <p id="description"><b>📄 Description:</b> loading...</p>
+                            <p id="humidity"><b>💧 Humidity:</b> loading...</p>
+                            <p id="pressure"><b>📊 Pressure:</b> loading...</p>
                             <br/>
-                            <p id="wind-speed"><b>Wind Speed:</b></p>
-                            <p id="wind-direction"><b>Wind Direction:</b></p>
+                            <p id="wind-speed"><b>🏎️ Wind Speed:</b> loading...</p>
+                            <p id="wind-direction"><b>🧭 Wind Direction:</b> loading...</p>
                     </li>
                     <li id = "result-right">
-                            <p id="temp"><b>Temp:</b></p>
-                            <p id="min-temp"><b>Min:</b></p>
-                            <p id="max-temp"><b>Max:</b></p>
-                            <p id="real-feel"><b>Feels like:</b></p>
+                            <p id="temp"><b>🌡️ Temp:</b> loading...</p>
+                            <p id="min-temp"><b>📉 Min:</b> loading...</p>
+                            <p id="max-temp"><b>📈 Max:</b> loading...</p>
+                            <p id="real-feel"><b>😶‍🌫️ Feels like:</b> loading...</p>
                             <br />
-                            <p id="special-note"><b>Special note:</b></p>
+                            <p id="special-note"><b>Special note:</b> loading...</p>
                     </li>
                 </ul>
-                <p id="latest-response"><b>Latest Response:</b></p>
+                <p id="latest-response"><b>Latest Response:</b> loading...</p>
             </div>
             <div id = "restart">
-                <p>* Response may take a few seconds due to amount of requests.<br/>Thank you for your patience.</p>
+                <p>* Response may take a few seconds due to large amount of requests.<br/>Thank you for your patience.</p>
                 <button onclick="restart()">Try Again</button>
             </div>
         </div>

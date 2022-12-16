@@ -21,6 +21,21 @@ function restart() {
     document.getElementById("options-list").style.setProperty("display","flex");
     document.getElementById("result-div").style.setProperty("display","none");
     document.getElementById("restart").style.setProperty("display","none");
+
+    document.getElementById("condition").innerHTML = "<b>⛅️ Condition:</b> loading...";
+    document.getElementById("description").innerHTML = "<b>📄 Description:</b> loading...";
+    document.getElementById("humidity").innerHTML = "<b>💧 Humidity:</b> loading...";
+    document.getElementById("pressure").innerHTML = "<b>📊 Pressure:</b> loading...";
+
+    document.getElementById("wind-speed").innerHTML = "<b>🏎️ Wind Speed:</b> loading...";
+    document.getElementById("wind-direction").innerHTML = "<b>🧭 Wind Direction:</b> loading...";
+    document.getElementById("special-note").innerHTML = "<b>Special note:</b> loading...";
+
+
+    document.getElementById("temp").innerHTML = "<b>🌡️ Temp:</b> loading...";
+    document.getElementById("min-temp").innerHTML = "<b>📉 Min:</b> loading...";
+    document.getElementById("max-temp").innerHTML = "<b>📈 Max:</b> loading...";
+    document.getElementById("real-feel").innerHTML = "<b>😶‍🌫️ Feels like:</b> loading...";
 }
 
 /***    API-RELATED FUNCTIONS AND CONSTANTS     ***/
@@ -122,7 +137,7 @@ function generateHTML(data) {
         });
     }
     let condition = document.getElementById("condition");
-    condition.innerHTML = "<b>Condition:</b> " + data.weather[0].main;
+    condition.innerHTML = "<b>⛅️ Condition:</b> " + data.weather[0].main;
 
     let specialNote = document.getElementById("special-note");
 
@@ -155,31 +170,31 @@ function generateHTML(data) {
     }
 
     let description = document.getElementById("description");
-    description.innerHTML = "<b>Description:</b> " + data.weather[0].description;
+    description.innerHTML = "<b>📄 Description:</b> " + data.weather[0].description;
 
     let humidity = document.getElementById("humidity");
-    humidity.innerHTML = "<b>Humidity:</b> " + data.main.humidity + "%";
+    humidity.innerHTML = "<b>💧 Humidity:</b> " + data.main.humidity + "%";
 
     let pressure = document.getElementById("pressure");
-    pressure.innerHTML = "<b>Pressure:</b> " + data.main.pressure + " hPA";
+    pressure.innerHTML = "<b>📊 Pressure:</b> " + data.main.pressure + " hPA";
 
     let windSpeed = document.getElementById("wind-speed");
-    windSpeed.innerHTML = "<b>Wind Speed:</b> " + data.wind.speed + " km/h";
+    windSpeed.innerHTML = "<b>🏎️ Wind Speed:</b> " + data.wind.speed + " km/h";
 
     let windDir = document.getElementById("wind-direction");
-    windDir.innerHTML = "<b>Wind Direction:</b> " + convert(data.wind.deg);
+    windDir.innerHTML = "<b>🧭 Wind Direction:</b> " + convert(data.wind.deg);
 
     let temp = document.getElementById("temp");
-    temp.innerHTML = "<b>Temp:</b> " + data.main.temp + " " + celcius;
+    temp.innerHTML = "<b>🌡️ Temp:</b> " + data.main.temp + " " + celcius;
 
     let minTemp = document.getElementById("min-temp");
-    minTemp.innerHTML = "<b>Min:</b> " + data.main.temp_min + " " + celcius;
+    minTemp.innerHTML = "<b>📉 Min:</b> " + data.main.temp_min + " " + celcius;
 
     let maxTemp = document.getElementById("max-temp");
-    maxTemp.innerHTML = "<b>Max:</b> " + data.main.temp_max + " " + celcius;
+    maxTemp.innerHTML = "<b>📈 Max:</b> " + data.main.temp_max + " " + celcius;
 
     let realFeel = document.getElementById("real-feel");
-    realFeel.innerHTML = "<b>Feels Like:</b> " + data.main.feels_like + " " + celcius;
+    realFeel.innerHTML = "<b>😶‍🌫️ Feels Like:</b> " + data.main.feels_like + " " + celcius;
 
     let unix = data.dt * 1000.000;
     let date = new Date(unix);
